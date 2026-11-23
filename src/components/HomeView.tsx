@@ -21,7 +21,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
       {/* Tier 1: Lead Story + Top Three Secondary Features */}
       <section aria-labelledby="front-page-heading">
         <h1 id="front-page-heading" className="sr-only">
-          RupeeUpdate.in Top Financial News
+          RupeeUpdate.in Mukhya Khabrein
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-stone-200 items-stretch">
@@ -66,13 +66,13 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
                 />
               </button>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-500">
-                <span>By {leadArticle.author}</span>
+                <span>Lekhak: {leadArticle.author}</span>
                 <button
                   type="button"
                   onClick={() => onSelectArticle(leadArticle)}
                   className="inline-flex items-center gap-1.5 font-semibold text-emerald-900 hover:text-emerald-950 transition-colors"
                 >
-                  <span>Read Full Briefing</span>
+                  <span>Puri Khabar Padhein</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -109,7 +109,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
                 <button
                   type="button"
                   onClick={() => onSelectArticle(article)}
-                  aria-label={`Read ${article.title}`}
+                  aria-label={`Padhein ${article.title}`}
                   className="w-24 sm:w-28 aspect-[4/3] shrink-0 overflow-hidden rounded-md border border-stone-200 bg-stone-100"
                 >
                   <EditorialImage
@@ -132,7 +132,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               Personal Finance
             </h2>
             <p className="text-sm text-stone-500 mt-1">
-              Tax slabs, PF / EPFO claims, RBI banking updates, and credit card rules
+              Tax slabs, PF / EPFO claims, RBI banking updates, aur credit card rules
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs font-medium">
@@ -151,7 +151,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               onClick={() => onNavigate('personal-finance')}
               className="inline-flex items-center gap-1 font-semibold text-emerald-900 hover:text-emerald-950 whitespace-nowrap"
             >
-              <span>View Desk</span>
+              <span>Sabhi Dekhein</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -191,7 +191,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
                 </p>
               </div>
               <div className="mt-3 text-xs text-stone-500">
-                By {article.author} · {article.readTime}
+                {article.author} · {article.readTime}
               </div>
             </article>
           ))}
@@ -206,7 +206,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               IPO &amp; Market
             </h2>
             <p className="text-sm text-stone-500 mt-1">
-              Upcoming mainboard &amp; SME IPOs, indicative GMP tracker, and quarterly results
+              Upcoming mainboard &amp; SME IPOs, indicative GMP tracker, aur quarterly results
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs font-medium">
@@ -304,7 +304,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
                 </table>
               </div>
               <div className="px-4 py-2.5 bg-stone-50 border-t border-stone-200 text-xs text-stone-500">
-                Note: GMP reflects informal OTC sentiment only and is not SEBI-regulated. Always check the official RHP before applying.
+                Note: GMP unofficial OTC market sentiment hai. Apply karne se pehle RHP zaroor check karein.
               </div>
             </div>
           </div>
@@ -319,7 +319,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               Sarkari Yojana
             </h2>
             <p className="text-sm text-stone-500 mt-1">
-              Mudra Loan limits, MSME Udyam benefits, and Central &amp; State welfare schemes
+              Mudra Loan limits, MSME Udyam benefits, aur Central &amp; State welfare schemes
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs font-medium">
@@ -338,7 +338,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               onClick={() => onNavigate('sarkari-yojana')}
               className="inline-flex items-center gap-1 font-semibold text-emerald-900 hover:text-emerald-950 whitespace-nowrap"
             >
-              <span>All Schemes</span>
+              <span>Sabhi Schemes</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -378,7 +378,7 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
                 </p>
               </div>
               <div className="mt-3 text-xs text-stone-500">
-                By {article.author} · {article.readTime}
+                {article.author} · {article.readTime}
               </div>
             </article>
           ))}
@@ -394,10 +394,10 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               <span>Interactive Rupee Tools</span>
             </div>
             <h2 id="calculators-teaser" className="font-editorial text-2xl font-bold text-stone-950">
-              Plan Your SIP, Loan EMI &amp; FY 2026-27 Income Tax in Seconds
+              Apna SIP, Loan EMI aur FY 2026-27 Income Tax Kuch Hi Seconds Me Calculate Karein
             </h2>
             <p className="mt-2 text-sm text-stone-600 leading-relaxed">
-              Fast, zero-clutter calculators built for Indian salaried taxpayers, mutual fund investors, and home loan borrowers.
+              Fast, zero-clutter calculators jo specially Indian salaried taxpayers aur mutual fund investors ke liye banaye gaye hain.
             </p>
           </div>
 
@@ -423,8 +423,8 @@ export function HomeView({ onSelectArticle, onNavigate }: HomeViewProps) {
               onClick={() => onNavigate('calculators')}
               className="px-5 py-3 bg-emerald-900 hover:bg-emerald-950 text-white rounded-md text-left transition-colors"
             >
-              <div className="text-sm font-semibold">Tax Regime Compare</div>
-              <div className="text-xs text-emerald-100 mt-0.5">New vs Old FY 26-27</div>
+              <div className="text-sm font-semibold">Tax Compare</div>
+              <div className="text-xs text-emerald-100 mt-0.5">New vs Old Regime</div>
             </button>
           </div>
         </div>

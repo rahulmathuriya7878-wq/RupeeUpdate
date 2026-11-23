@@ -19,17 +19,17 @@ const DESK_META: Record<
 > = {
   'Personal Finance': {
     description:
-      'Actionable reporting on Income Tax slabs, EPFO passbook & withdrawal rules, RBI banking rates, and credit card disclosures.',
+      'Income Tax slabs, EPFO passbook aur withdrawal niyam, RBI banking rates aur credit card updates ki seedhi aur sahi jankari.',
     subCategories: ['Tax', 'PF / EPFO', 'Banking', 'Credit Cards'],
   },
   'IPO & Market': {
     description:
-      'Mainboard & SME IPO calendars, indicative Grey Market Premium (GMP) updates, and quarterly corporate earnings coverage.',
+      'Mainboard aur SME IPO calendar, indicative Grey Market Premium (GMP) updates aur corporate quarterly results ka analysis.',
     subCategories: ['Upcoming IPOs', 'GMP Tracker', 'Quarterly Results'],
   },
   'Sarkari Yojana': {
     description:
-      'Verified guides on PM Mudra Loans, Udyam MSME credit guarantees, and central or state welfare subsidy schemes.',
+      'PM Mudra Loan, Udyam MSME credit guarantee aur Central wa State sarkar ki subsidy yojanaon ki verified guides.',
     subCategories: ['Mudra Loan', 'MSME', 'Central Schemes', 'State Schemes'],
   },
 };
@@ -100,7 +100,7 @@ export function CategoryView({ desk, initialSubCategory = null, onSelectArticle 
         <section aria-labelledby="ipo-desk-table" className="border border-stone-200 rounded-lg overflow-hidden bg-white">
           <div className="px-5 py-3.5 bg-stone-50 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
             <h2 id="ipo-desk-table" className="font-sans text-sm font-semibold text-stone-950">
-              Mainboard &amp; SME IPO Calendar with Indicative GMP
+              Mainboard &amp; SME IPO Calendar aur Indicative GMP
             </h2>
             <span className="text-xs text-stone-500">Updated Nov 22, 2026</span>
           </div>
@@ -110,7 +110,7 @@ export function CategoryView({ desk, initialSubCategory = null, onSelectArticle 
                 <tr className="border-b border-stone-200 text-xs text-stone-500 bg-stone-50/50">
                   <th className="py-3 px-5 font-semibold">Issuer Company</th>
                   <th className="py-3 px-4 font-semibold">Board</th>
-                  <th className="py-3 px-4 font-semibold">Issue Window</th>
+                  <th className="py-3 px-4 font-semibold">Issue Dates</th>
                   <th className="py-3 px-4 font-semibold text-right">Price Band</th>
                   <th className="py-3 px-4 font-semibold text-right">Lot Size</th>
                   <th className="py-3 px-4 font-semibold text-right">GMP (Unofficial)</th>
@@ -141,7 +141,7 @@ export function CategoryView({ desk, initialSubCategory = null, onSelectArticle 
             </table>
           </div>
           <div className="px-5 py-2.5 bg-stone-50 border-t border-stone-200 text-xs text-stone-500">
-            Disclaimer: Grey Market Premium (GMP) is unregulated and shown solely for educational market context. RupeeUpdate.in is not SEBI-registered.
+            Disclaimer: Grey Market Premium (GMP) unregulated hai aur sirf market sentiment samjhane ke liye diya gaya hai. RupeeUpdate.in SEBI-registered advisor nahi hai.
           </div>
         </section>
       )}
@@ -149,13 +149,13 @@ export function CategoryView({ desk, initialSubCategory = null, onSelectArticle 
       {/* Filtered Articles Grid */}
       {filteredArticles.length === 0 ? (
         <div className="py-12 text-center border border-stone-200 rounded-lg bg-stone-50">
-          <p className="text-sm text-stone-600">No stories matched this filter right now.</p>
+          <p className="text-sm text-stone-600">Is category mein abhi koi article uplabdh nahi hai.</p>
           <button
             type="button"
             onClick={() => setSelectedSub('All')}
             className="mt-3 text-xs font-semibold text-emerald-900 hover:underline"
           >
-            Show all {desk} briefings
+            Sabhi {desk} khabrein dekhein
           </button>
         </div>
       ) : (
@@ -196,13 +196,13 @@ export function CategoryView({ desk, initialSubCategory = null, onSelectArticle 
               </div>
 
               <div className="mt-4 flex items-center justify-between text-xs text-stone-500">
-                <span>By {article.author}</span>
+                <span>Report: {article.author}</span>
                 <button
                   type="button"
                   onClick={() => onSelectArticle(article)}
                   className="inline-flex items-center gap-1 font-semibold text-emerald-900 hover:text-emerald-950"
                 >
-                  <span>Read</span>
+                  <span>Padhein</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

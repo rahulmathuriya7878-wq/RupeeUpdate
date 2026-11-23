@@ -36,7 +36,7 @@ export function Header({ activeSection, onNavigate, onOpenSearch }: HeaderProps)
           RupeeUpdate.in
         </button>
 
-        {/* Zone 2: 5 concise single-line navigation links */}
+        {/* Zone 2: Navigation Links */}
         <nav aria-label="Primary Navigation" className="hidden lg:flex items-center gap-7">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
@@ -57,7 +57,7 @@ export function Header({ activeSection, onNavigate, onOpenSearch }: HeaderProps)
           })}
         </nav>
 
-        {/* Zone 3: 1 primary action + mobile drawer button */}
+        {/* Zone 3: Search action + mobile drawer */}
         <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
@@ -65,13 +65,13 @@ export function Header({ activeSection, onNavigate, onOpenSearch }: HeaderProps)
             className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-emerald-900 hover:bg-emerald-950 rounded-md transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
           >
             <Search className="w-3.5 h-3.5" />
-            <span>Search</span>
+            <span>Khojein (Search)</span>
           </button>
 
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
-            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={mobileOpen ? 'Menu band karein' : 'Menu kholein'}
             aria-expanded={mobileOpen}
             className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-stone-200 text-stone-700 hover:bg-stone-100 transition-colors"
           >
@@ -80,7 +80,7 @@ export function Header({ activeSection, onNavigate, onOpenSearch }: HeaderProps)
         </div>
       </div>
 
-      {/* Responsive Mobile Navigation Drawer */}
+      {/* Mobile Navigation Drawer */}
       {mobileOpen && (
         <nav
           aria-label="Mobile Navigation"

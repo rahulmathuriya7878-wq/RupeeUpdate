@@ -24,7 +24,7 @@ export function MarketStrip() {
           ))}
         </div>
         <div className="hidden xl:block text-xs text-stone-500 whitespace-nowrap shrink-0">
-          Edition: India · Updated Nov 22, 2026
+          India Edition · Updated Nov 22, 2026
         </div>
       </div>
     </div>

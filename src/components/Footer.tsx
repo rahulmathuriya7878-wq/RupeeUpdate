@@ -19,13 +19,13 @@ export function Footer({ onNavigate }: FooterProps) {
               RupeeUpdate.in
             </button>
             <p className="text-sm text-stone-600 leading-relaxed max-w-md">
-              Independent Indian personal finance news desk covering income tax rules, EPFO updates,
-              banking rates, IPO &amp; GMP tracking, and central/state Sarkari Yojana briefings.
+              Independent Indian personal finance news desk jahan aapko income tax rules, EPFO updates,
+              banking rates, IPO &amp; GMP tracking, aur central/state Sarkari Yojana briefings milti hain.
             </p>
             <p className="text-xs text-stone-500 leading-relaxed max-w-md">
-              Notice: RupeeUpdate.in is an informational publication and is{' '}
-              <strong className="font-semibold text-stone-700">not a SEBI-registered investment advisor</strong>.
-              Please consult a certified financial planner before investing.
+              Notice: RupeeUpdate.in ek informational news publication hai aur yeh{' '}
+              <strong className="font-semibold text-stone-700">SEBI-registered investment advisor nahi hai</strong>.
+              Kisi bhi investment se pehle certified financial planner se salah zaroor lein.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Mandatory Essential Pages */}
           <div className="md:col-span-4 space-y-3">
             <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-500">
-              Essential Pages
+              Essential Pages (AdSense Ready)
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -95,7 +95,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   onClick={() => onNavigate('about')}
                   className="text-stone-700 hover:text-emerald-900 transition-colors"
                 >
-                  About Us
+                  About Us (Hmare Bare Me)
                 </button>
               </li>
               <li>
@@ -104,7 +104,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   onClick={() => onNavigate('contact')}
                   className="text-stone-700 hover:text-emerald-900 transition-colors"
                 >
-                  Contact Us
+                  Contact Us (Sampark Karein)
                 </button>
               </li>
               <li>
@@ -122,7 +122,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   onClick={() => onNavigate('disclaimer')}
                   className="text-stone-700 hover:text-emerald-900 transition-colors font-medium"
                 >
-                  Disclaimer (Non-SEBI Registered Notice)
+                  Disclaimer (Non-SEBI Notice)
                 </button>
               </li>
             </ul>
@@ -131,7 +131,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-stone-500">
           <p>© 2026 RupeeUpdate.in. All editorial rights reserved.</p>
-          <p>For educational &amp; informational news purposes only.</p>
+          <p>Educational aur informational news purposes ke liye.</p>
         </div>
       </div>
     </footer>

@@ -65,7 +65,6 @@ export function CalculatorsView() {
   }, [loanAmount, loanRate, loanYears]);
 
   const taxResult = useMemo(() => {
-    // New Tax Regime (Std Deduction 75,000; Slabs: 0-3L 0%, 3-7L 5%, 7-10L 10%, 10-12L 15%, 12-15L 20%, >15L 30%)
     const newTaxable = Math.max(0, annualIncome - 75000);
     let newBaseTax = 0;
     if (newTaxable > 1500000) {
@@ -89,11 +88,9 @@ export function CalculatorsView() {
     } else if (newTaxable > 300000) {
       newBaseTax += (newTaxable - 300000) * 0.05;
     }
-    // Sec 87A rebate up to ₹7L taxable
     if (newTaxable <= 700000) newBaseTax = 0;
     const newTotalTax = newBaseTax * 1.04;
 
-    // Old Tax Regime (Std Deduction 50,000 + user deductions; Slabs: 0-2.5L 0%, 2.5-5L 5%, 5-10L 20%, >10L 30%)
     const oldDeductions = 50000 + Math.min(150000, deduction80C) + deduction80D + hraOrHomeLoan;
     const oldTaxable = Math.max(0, annualIncome - oldDeductions);
     let oldBaseTax = 0;
@@ -136,7 +133,7 @@ export function CalculatorsView() {
           SIP, Loan EMI &amp; Income Tax Calculators
         </h1>
         <p className="mt-2 text-base text-stone-600 max-w-2xl">
-          Transparent financial tools built for Indian rupee calculations. Adjust inputs below to evaluate returns, EMIs, and tax regime differences.
+          Apne mutual fund returns, loan EMI aur FY 2026-27 ka Income Tax aasani se calculate karein. Sliders ghumakar turant result dekhein.
         </p>
 
         {/* Segmented Tab Switcher */}
@@ -183,7 +180,7 @@ export function CalculatorsView() {
           <div className="lg:col-span-7 border border-stone-200 rounded-lg p-6 space-y-6 bg-white">
             <div>
               <div className="flex justify-between text-sm font-medium text-stone-900 mb-2">
-                <label htmlFor="sip-monthly">Monthly SIP Investment</label>
+                <label htmlFor="sip-monthly">Har Mahine SIP Investment</label>
                 <span className="font-mono font-semibold text-emerald-900 tabular-nums">{formatINR(sipMonthly)}</span>
               </div>
               <input
@@ -204,7 +201,7 @@ export function CalculatorsView() {
 
             <div>
               <div className="flex justify-between text-sm font-medium text-stone-900 mb-2">
-                <label htmlFor="sip-return">Expected Return Rate (p.a.)</label>
+                <label htmlFor="sip-return">Expected Return Rate (Salana)</label>
                 <span className="font-mono font-semibold text-emerald-900 tabular-nums">{sipReturn}%</span>
               </div>
               <input
@@ -225,7 +222,7 @@ export function CalculatorsView() {
 
             <div>
               <div className="flex justify-between text-sm font-medium text-stone-900 mb-2">
-                <label htmlFor="sip-years">Investment Tenure (Years)</label>
+                <label htmlFor="sip-years">Investment Samay (Saal)</label>
                 <span className="font-mono font-semibold text-emerald-900 tabular-nums">{sipYears} yrs</span>
               </div>
               <input
@@ -239,8 +236,8 @@ export function CalculatorsView() {
                 className="w-full accent-emerald-900"
               />
               <div className="flex justify-between text-xs text-stone-400 mt-1">
-                <span>1 yr</span>
-                <span>40 yrs</span>
+                <span>1 saal</span>
+                <span>40 saal</span>
               </div>
             </div>
           </div>
@@ -248,23 +245,23 @@ export function CalculatorsView() {
           <div className="lg:col-span-5 border border-stone-200 rounded-lg p-6 bg-stone-50 flex flex-col justify-between space-y-6">
             <div>
               <h2 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-500">
-                Projected SIP Summary
+                Anumanit SIP Summary
               </h2>
               <div className="mt-4 space-y-4">
                 <div className="flex items-baseline justify-between border-b border-stone-200 pb-3">
-                  <span className="text-sm text-stone-600">Total Invested</span>
+                  <span className="text-sm text-stone-600">Kul Nivesh (Invested)</span>
                   <span className="font-mono text-base font-semibold text-stone-900 tabular-nums">
                     {formatINR(sipResult.invested)}
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-stone-200 pb-3">
-                  <span className="text-sm text-stone-600">Estimated Gains</span>
+                  <span className="text-sm text-stone-600">Anumanit Munafa (Est. Gains)</span>
                   <span className="font-mono text-base font-semibold text-emerald-800 tabular-nums">
                     +{formatINR(sipResult.estReturns)}
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between pt-1">
-                  <span className="text-base font-semibold text-stone-950">Total Maturity Value</span>
+                  <span className="text-base font-semibold text-stone-950">Kul Maturity Value</span>
                   <span className="font-mono text-2xl font-bold text-stone-950 tabular-nums">
                     {formatINR(sipResult.totalValue)}
                   </span>
@@ -315,7 +312,7 @@ export function CalculatorsView() {
 
             <div>
               <div className="flex justify-between text-sm font-medium text-stone-900 mb-2">
-                <label htmlFor="loan-rate">Interest Rate (p.a.)</label>
+                <label htmlFor="loan-rate">Interest Rate (Salana)</label>
                 <span className="font-mono font-semibold text-emerald-900 tabular-nums">{loanRate.toFixed(2)}%</span>
               </div>
               <input
@@ -336,7 +333,7 @@ export function CalculatorsView() {
 
             <div>
               <div className="flex justify-between text-sm font-medium text-stone-900 mb-2">
-                <label htmlFor="loan-years">Loan Tenure (Years)</label>
+                <label htmlFor="loan-years">Loan Tenure (Saal)</label>
                 <span className="font-mono font-semibold text-emerald-900 tabular-nums">{loanYears} yrs</span>
               </div>
               <input
@@ -350,8 +347,8 @@ export function CalculatorsView() {
                 className="w-full accent-emerald-900"
               />
               <div className="flex justify-between text-xs text-stone-400 mt-1">
-                <span>1 yr</span>
-                <span>30 yrs</span>
+                <span>1 saal</span>
+                <span>30 saal</span>
               </div>
             </div>
           </div>
@@ -359,11 +356,11 @@ export function CalculatorsView() {
           <div className="lg:col-span-5 border border-stone-200 rounded-lg p-6 bg-stone-50 flex flex-col justify-between space-y-6">
             <div>
               <h2 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-500">
-                Repayment Schedule Summary
+                Repayment Summary
               </h2>
               <div className="mt-4 space-y-4">
                 <div className="flex items-baseline justify-between border-b border-stone-200 pb-3">
-                  <span className="text-base font-semibold text-stone-950">Monthly EMI</span>
+                  <span className="text-base font-semibold text-stone-950">Har Mahine EMI</span>
                   <span className="font-mono text-2xl font-bold text-emerald-900 tabular-nums">
                     {formatINR(emiResult.emi)}
                   </span>
@@ -375,13 +372,13 @@ export function CalculatorsView() {
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-stone-200 pb-3">
-                  <span className="text-sm text-stone-600">Total Interest Payable</span>
+                  <span className="text-sm text-stone-600">Kul Byaj (Total Interest)</span>
                   <span className="font-mono text-base font-semibold text-stone-900 tabular-nums">
                     {formatINR(emiResult.totalInterest)}
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between pt-1">
-                  <span className="text-sm font-medium text-stone-700">Total Payment</span>
+                  <span className="text-sm font-medium text-stone-700">Kul Bhugtan (Total Payment)</span>
                   <span className="font-mono text-lg font-bold text-stone-950 tabular-nums">
                     {formatINR(emiResult.totalPayment)}
                   </span>
@@ -411,7 +408,7 @@ export function CalculatorsView() {
           <div className="lg:col-span-6 border border-stone-200 rounded-lg p-6 space-y-5 bg-white">
             <div>
               <label htmlFor="tax-income" className="block text-sm font-medium text-stone-900 mb-1.5">
-                Annual Gross Salary / Income (₹)
+                Salana Gross Salary / Income (₹)
               </label>
               <input
                 id="tax-income"
@@ -474,13 +471,13 @@ export function CalculatorsView() {
             </div>
 
             <p className="text-xs text-stone-500">
-              Includes Standard Deduction (₹75,000 in New Regime; ₹50,000 in Old Regime) and 4% Health &amp; Education Cess.
+              Ismein Standard Deduction (New Regime mein ₹75,000; Old Regime mein ₹50,000) aur 4% Health &amp; Education Cess shamil hai.
             </p>
           </div>
 
           <div className="lg:col-span-6 border border-stone-200 rounded-lg p-6 bg-stone-50 space-y-5">
             <h2 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-500">
-              FY 2026-27 Regime Comparison
+              FY 2026-27 Tax Regime Tulna (Comparison)
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -507,11 +504,11 @@ export function CalculatorsView() {
 
             <div className="pt-3 border-t border-stone-200">
               <div className="text-sm font-medium text-stone-900">
-                Lower Tax Option:{' '}
+                Kam Tax Wala Option:{' '}
                 <span className="font-bold text-emerald-900">{taxResult.recommended}</span>
               </div>
               <p className="text-xs text-stone-600 mt-1 font-mono tabular-nums">
-                Estimated annual tax difference: {formatINR(taxResult.savings)}
+                Salana tax bachat (Estimated difference): {formatINR(taxResult.savings)}
               </p>
             </div>
           </div>
@@ -519,7 +516,7 @@ export function CalculatorsView() {
       )}
 
       <p className="text-xs text-stone-500 border-t border-stone-200 pt-4">
-        Note: Calculator outputs are illustrative estimates for planning purposes. Consult a Chartered Accountant for formal ITR filing.
+        Soochna: Calculator ke results sirf planning estimate hain. ITR filing ke liye apne Chartered Accountant se salah zaroor lein.
       </p>
     </main>
   );

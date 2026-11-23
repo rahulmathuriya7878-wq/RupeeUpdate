@@ -58,7 +58,7 @@ export function SearchModal({
       className="fixed inset-0 z-50 bg-stone-950/50 backdrop-blur-xs flex items-start justify-center pt-16 px-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Search RupeeUpdate.in"
+      aria-label="RupeeUpdate.in Search"
     >
       <div className="w-full max-w-2xl bg-white border border-stone-200 rounded-lg shadow-xl overflow-hidden">
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-stone-200">
@@ -68,13 +68,13 @@ export function SearchModal({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search EPFO, Tax, Mudra Loan, GMP, or IPOs..."
+            placeholder="EPFO, Tax, Mudra Loan, GMP ya IPO search karein..."
             className="w-full text-sm text-stone-950 placeholder:text-stone-400 focus:outline-none"
           />
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close search"
+            aria-label="Search band karein"
             className="p-1.5 text-stone-500 hover:text-stone-900 rounded-md hover:bg-stone-100"
           >
             <X className="w-4 h-4" />
@@ -85,7 +85,7 @@ export function SearchModal({
           {matchedIpos.length > 0 && (
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">
-                IPO Watchlist Matches
+                IPO Watchlist Results
               </div>
               <div className="divide-y divide-stone-100 border border-stone-200 rounded-md">
                 {matchedIpos.map((ipo) => (
@@ -115,11 +115,11 @@ export function SearchModal({
 
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">
-              {q ? `Matching Articles (${matchedArticles.length})` : 'Recent Briefings'}
+              {q ? `Matching Khabrein (${matchedArticles.length})` : 'Taaza Khabrein'}
             </div>
             {matchedArticles.length === 0 ? (
               <p className="text-sm text-stone-500 py-6 text-center">
-                No articles matched &ldquo;{query}&rdquo;. Try keywords like Tax, EPFO, IPO, or Mudra.
+                &ldquo;{query}&rdquo; ke liye koi khabar nahi mili. Tax, EPFO, IPO ya Mudra search karke dekhein.
               </p>
             ) : (
               <div className="divide-y divide-stone-100">

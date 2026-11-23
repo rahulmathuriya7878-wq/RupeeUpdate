@@ -57,38 +57,38 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
               Editorial Mission
             </p>
             <h1 className="font-editorial text-3xl sm:text-4xl font-bold text-stone-950">
-              About RupeeUpdate.in
+              About Us — RupeeUpdate.in
             </h1>
           </header>
 
           <div className="space-y-5 text-base text-stone-700 leading-relaxed max-w-prose">
             <p>
-              <strong>RupeeUpdate.in</strong> is an independent Indian personal finance and public
-              policy news portal dedicated to explaining complex financial rules in clear, jargon-free
-              language.
+              <strong>RupeeUpdate.in</strong> ek independent Indian personal finance aur public
+              policy news portal hai jo complex financial rules ko aasaan Hinglish aur clear bhasha me
+              samjhata hai.
             </p>
             <p>
-              Our editorial desks cover three core pillars that matter directly to Indian households,
-              salaried professionals, and small business owners:
+              Hmare editorial desks tin mukhya pillars par focus karte hain jo Indian households,
+              salaried professionals aur small business owners ke liye zaroori hain:
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Personal Finance:</strong> Income tax regime breakdowns, EPFO passbook and
-                withdrawal processes, RBI banking policies, and credit card disclosures.
+                <strong>Personal Finance:</strong> Income tax regime breakdowns, EPFO passbook aur
+                withdrawal process, RBI banking policies, aur credit card updates.
               </li>
               <li>
-                <strong>IPO &amp; Market:</strong> Mainboard and SME IPO calendars, indicative Grey
-                Market Premium (GMP) sentiment tracking, and quarterly corporate earnings reviews.
+                <strong>IPO &amp; Market:</strong> Mainboard aur SME IPO calendars, indicative Grey
+                Market Premium (GMP) sentiment, aur quarterly corporate earnings reviews.
               </li>
               <li>
-                <strong>Sarkari Yojana:</strong> Verified step-by-step documentation guides for PM
-                Mudra Yojana, Udyam MSME benefits, and Central &amp; State welfare schemes.
+                <strong>Sarkari Yojana:</strong> PM Mudra Loans, Udyam MSME benefits, aur central ya
+                state welfare schemes ke verified step-by-step guides.
               </li>
             </ul>
             <p>
-              Every report on RupeeUpdate.in is cross-checked against official notifications from the
-              Reserve Bank of India (RBI), Income Tax India, EPFO, SEBI filings, and official{' '}
-              <code>.gov.in</code> portals before publication.
+              RupeeUpdate.in par publish hone wali har khabar ko Reserve Bank of India (RBI), Income
+              Tax India, EPFO, SEBI filings aur official <code>.gov.in</code> portals ke mutabiq
+              cross-check kiya jata hai.
             </p>
           </div>
         </article>
@@ -101,11 +101,11 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
               Reader Desk
             </p>
             <h1 className="font-editorial text-3xl sm:text-4xl font-bold text-stone-950">
-              Contact Us
+              Contact Us (Sampark Karein)
             </h1>
             <p className="text-base text-stone-600 max-w-2xl">
-              Have a factual correction, press release, or feedback on our calculators? Reach out to
-              our editorial desk directly.
+              Koi correction hai, press release bhejni hai ya calculators par feedback dena hai? Aap
+              seedhe hmare editorial desk se sampark kar sakte hain.
             </p>
           </header>
 
@@ -115,25 +115,25 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                 <div className="py-8 text-center space-y-3">
                   <CheckCircle2 className="w-10 h-10 text-emerald-800 mx-auto" />
                   <h2 className="font-editorial text-xl font-bold text-stone-950">
-                    Message Received
+                    Message Mil Gaya Hai
                   </h2>
                   <p className="text-sm text-stone-600 max-w-sm mx-auto">
-                    Thank you for contacting RupeeUpdate.in. Our editorial team reviews reader
-                    submissions within 2 business days.
+                    RupeeUpdate.in se sampark karne ke liye shukriya. Hmari team 2 business days ke
+                    andar aapke message ko review karegi.
                   </p>
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
                     className="mt-2 px-4 py-2 text-xs font-semibold text-white bg-emerald-900 hover:bg-emerald-950 rounded-md transition-colors"
                   >
-                    Send Another Message
+                    Ek Aur Message Bhejein
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="contact-name" className="block text-sm font-medium text-stone-900 mb-1">
-                      Full Name
+                      Pura Naam (Full Name)
                     </label>
                     <input
                       id="contact-name"
@@ -161,7 +161,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                   </div>
                   <div>
                     <label htmlFor="contact-topic" className="block text-sm font-medium text-stone-900 mb-1">
-                      Inquiry Topic
+                      Subject / Topic
                     </label>
                     <select
                       id="contact-topic"
@@ -177,7 +177,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                   </div>
                   <div>
                     <label htmlFor="contact-msg" className="block text-sm font-medium text-stone-900 mb-1">
-                      Message
+                      Aapka Message
                     </label>
                     <textarea
                       id="contact-msg"
@@ -185,7 +185,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                       required
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Share details of your query..."
+                      placeholder="Apne query ke details yahan likhein..."
                       className="w-full px-3.5 py-2.5 border border-stone-300 rounded-md text-sm text-stone-950 focus:outline-2 focus:outline-emerald-900"
                     />
                   </div>
@@ -193,7 +193,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                     type="submit"
                     className="px-5 py-2.5 text-sm font-semibold text-white bg-emerald-900 hover:bg-emerald-950 rounded-md transition-colors"
                   >
-                    Submit Message
+                    Message Bhejein
                   </button>
                 </form>
               )}
@@ -202,7 +202,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
             <aside className="md:col-span-5 space-y-5">
               <div className="border border-stone-200 rounded-lg p-5 bg-stone-50 space-y-4">
                 <h2 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-500">
-                  Editorial Desk Details
+                  Newsroom Contact Details
                 </h2>
                 <div className="flex items-start gap-3 text-sm text-stone-700">
                   <Mail className="w-4 h-4 text-emerald-900 mt-0.5 shrink-0" />
@@ -214,7 +214,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                 <div className="flex items-start gap-3 text-sm text-stone-700">
                   <MapPin className="w-4 h-4 text-emerald-900 mt-0.5 shrink-0" />
                   <div>
-                    <div className="font-semibold text-stone-900">Newsroom Office</div>
+                    <div className="font-semibold text-stone-900">Office Address</div>
                     <div className="text-stone-600">
                       RupeeUpdate Digital Media, Connaught Place, New Delhi – 110001
                     </div>
@@ -222,8 +222,7 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
                 </div>
               </div>
               <p className="text-xs text-stone-500 leading-relaxed">
-                Note: We do not offer personalized stock tips, mutual fund recommendations, or paid
-                investment advisory over email.
+                Note: Hum email par koi personalized stock tips ya paid investment advice provide nahi karte hain.
               </p>
             </aside>
           </div>
@@ -244,41 +243,32 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
 
           <div className="space-y-5 text-base text-stone-700 leading-relaxed max-w-prose">
             <p>
-              At <strong>RupeeUpdate.in</strong>, the privacy of our visitors is critically important.
-              This Privacy Policy outlines the types of information collected and how it is used.
+              <strong>RupeeUpdate.in</strong> par aane wale har visitor ki privacy hmare liye behad
+              zaroori hai. Yeh Privacy Policy batati hai ki hum kaunsi information collect karte hain aur
+              uska kaise use hota hai.
             </p>
             <h2 className="font-editorial text-xl font-bold text-stone-950 pt-2">
               1. Log Files &amp; Analytics
             </h2>
             <p>
-              Like standard web publications, RupeeUpdate.in uses standard server log files recording
-              non-personally identifiable details such as browser type, Internet Service Provider
-              (ISP), date/time stamp, referring pages, and aggregate traffic trends to maintain site
-              speed and security.
+              Baaki standard websites ki tarah, RupeeUpdate.in standard server log files use karta hai
+              jisme browser type, ISP, date/time stamp, aur traffic trends shamil hain taaki site ki
+              speed aur security maintain ki ja sake.
             </p>
             <h2 className="font-editorial text-xl font-bold text-stone-950 pt-2">
-              2. Google AdSense &amp; Third-Party Cookies
+              2. Google AdSense &amp; Cookies
             </h2>
             <p>
-              Third-party vendors, including Google, use cookies (such as the Google DoubleClick
-              DART cookie) to serve advertisements based on a user’s prior visits to RupeeUpdate.in
-              or other websites on the internet. Users may opt out of personalized advertising by
-              visiting Google Ads Settings.
+              Google jaise third-party vendors cookies (jaise DART cookie) ka use karte hain taaki
+              users ko RupeeUpdate.in ya other sites par unke visit ke adhar par ads dikhaye ja sakein.
+              Aap Google Ads settings se personalization off kar sakte hain.
             </p>
             <h2 className="font-editorial text-xl font-bold text-stone-950 pt-2">
               3. Financial Calculators
             </h2>
             <p>
-              All calculations performed inside our SIP, EMI, and Income Tax tools run locally in
-              your browser. RupeeUpdate.in does not store or transmit your salary, investment, or loan
-              numbers to external servers.
-            </p>
-            <h2 className="font-editorial text-xl font-bold text-stone-950 pt-2">
-              4. Consent
-            </h2>
-            <p>
-              By using RupeeUpdate.in, you hereby consent to our Privacy Policy and agree to its
-              terms.
+              Hmare SIP, EMI, aur Tax calculators aapke browser me locally run hote hain. RupeeUpdate.in
+              aapka koi bhi salary ya loan data external servers par store nahi karta hai.
             </p>
           </div>
         </article>
@@ -291,44 +281,32 @@ export function EssentialPageView({ page, onNavigate }: EssentialPageViewProps) 
               Mandatory Regulatory Disclosure
             </p>
             <h1 className="font-editorial text-3xl sm:text-4xl font-bold text-stone-950">
-              Disclaimer
+              Disclaimer (Non-SEBI Registered Notice)
             </h1>
           </header>
 
           <div className="p-5 bg-stone-50 border border-stone-200 rounded-lg text-sm text-stone-900 leading-relaxed">
-            <strong>Important Notice:</strong> RupeeUpdate.in is strictly an independent news and
-            educational information portal. <strong>We are NOT a SEBI-registered investment advisor</strong>,
-            research analyst, stockbroker, or chartered tax consultant.
+            <strong>Important Notice:</strong> RupeeUpdate.in ek independent news aur educational
+            information portal hai. <strong>Hum SEBI-registered investment advisor nahi hain</strong>,
+            na hi research analyst ya tax consultant hain.
           </div>
 
           <div className="space-y-5 text-base text-stone-700 leading-relaxed max-w-prose">
             <h2 className="font-editorial text-xl font-bold text-stone-950 pt-1">
-              1. No Investment or Financial Advice
+              1. No Financial Advice
             </h2>
             <p>
-              All articles, market summaries, tax comparisons, and calculators published on
-              RupeeUpdate.in are provided solely for educational and informational purposes. Nothing
-              on this website constitutes a buy, sell, or hold recommendation for any equity, IPO,
-              mutual fund, or fixed-income product.
+              Hmare sabhi articles, market summaries, tax comparisons, aur calculators sirf
+              educational aur informational purposes ke liye hain. Kuch bhi buy, sell ya hold karne ki
+              financial advice nahi hai.
             </p>
             <h2 className="font-editorial text-xl font-bold text-stone-950 pt-1">
               2. IPO Grey Market Premium (GMP) Disclaimer
             </h2>
             <p>
-              Any Grey Market Premium (GMP) figures displayed on RupeeUpdate.in represent unofficial,
-              unregulated over-the-counter market sentiment reported in public financial circles.
-              GMP is volatile and not endorsed by SEBI, NSE, or BSE. Readers must review the
-              company’s official Red Herring Prospectus (RHP) and consult a SEBI-registered
-              investment advisor before applying for any IPO.
-            </p>
-            <h2 className="font-editorial text-xl font-bold text-stone-950 pt-1">
-              3. Sarkari Yojana &amp; Policy Verification
-            </h2>
-            <p>
-              While our editorial desk strives to cite current eligibility rules for Mudra Loans,
-              Udyam MSME schemes, and central/state subsidies, government guidelines change
-              periodically. Always verify final application requirements directly on official{' '}
-              <code>.gov.in</code> portals or authorized scheduled bank branches.
+              IPO GMP figures unofficial aur unregulated market sentiment par adharit hain. SEBI ya
+              stock exchanges ka isse koi lena-dena nahi hai. Apply karne se pehle company ka official
+              RHP zaroor padhein aur SEBI-registered advisor se salah lein.
             </p>
           </div>
         </article>

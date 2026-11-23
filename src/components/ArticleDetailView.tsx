@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { ARTICLES } from '../data/editorialData';
 import { Article, NavSection } from '../types';
 import { EditorialImage } from './EditorialImage';
+import { useDynamicMetadata } from '../hooks/useDynamicMetadata';
 
 interface ArticleDetailViewProps {
   article: Article;
@@ -16,17 +17,22 @@ export function ArticleDetailView({
   onSelectArticle,
   onNavigate,
 }: ArticleDetailViewProps) {
+  // Use custom hook to dynamically update document title and meta tags when article changes
+  useDynamicMetadata(article);
+
   const related = ARTICLES.filter((a) => a.id !== article.id && a.desk === article.desk).slice(0, 3);
+  const recommended = ARTICLES.filter((a) => a.id !== article.id && a.subCategory === article.subCategory).slice(0, 3);
+  const fallbackRecommended = recommended.length > 0 ? recommended : related;
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-12">
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 hover:text-emerald-900 transition-colors mb-6"
+        className="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 hover:text-emerald-900 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
-        <span>Back to News Desk</span>
+        <span>Wapas News Desk Par Jayein</span>
       </button>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -51,7 +57,7 @@ export function ArticleDetailView({
           </p>
 
           <div className="mt-4 pb-6 border-b border-stone-200 text-xs text-stone-500">
-            By <span className="font-semibold text-stone-800">{article.author}</span> · RupeeUpdate.in Editorial Desk
+            Report: <span className="font-semibold text-stone-800">{article.author}</span> · RupeeUpdate.in Editorial Desk
           </div>
 
           <figure className="my-6">
@@ -98,7 +104,7 @@ export function ArticleDetailView({
           </div>
 
           <div className="mt-10 pt-5 border-t border-stone-200 text-xs text-stone-500 leading-relaxed">
-            Editorial Disclosure: This report is published for informational purposes only. RupeeUpdate.in is not a SEBI-registered investment advisor or tax practitioner.
+            Editorial Soochna: Yeh report sirf jankari ke liye prakashit ki gayi hai. RupeeUpdate.in SEBI-registered investment advisor ya tax consultant nahi hai.
           </div>
         </article>
 
@@ -106,7 +112,7 @@ export function ArticleDetailView({
         <aside className="lg:col-span-4 space-y-8 lg:border-l lg:border-stone-200 lg:pl-8">
           <section>
             <h2 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-500 pb-3 border-b border-stone-200">
-              More in {article.desk}
+              {article.desk} Ki Aur Khabrein
             </h2>
             <div className="divide-y divide-stone-200">
               {related.map((rel) => (
@@ -130,22 +136,80 @@ export function ArticleDetailView({
 
           <section className="p-5 bg-stone-50 border border-stone-200 rounded-lg space-y-3">
             <h2 className="font-editorial text-lg font-bold text-stone-950">
-              Run the Numbers Yourself
+              Khud Calculate Karein
             </h2>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Calculate your monthly SIP maturity, home loan EMI, or FY 2026-27 income tax before making financial decisions.
+              Koi bhi faisla lene se pehle apni monthly SIP, home loan EMI ya FY 2026-27 income tax ka hisab lagayein.
             </p>
             <button
               type="button"
               onClick={() => onNavigate('calculators')}
               className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-emerald-900 hover:bg-emerald-950 rounded-md transition-colors"
             >
-              <span>Open Financial Calculators</span>
+              <span>Calculators Kholein</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </section>
         </aside>
       </div>
+
+      {/* Recommended for You / Aapke Liye Sujhav Section */}
+      <section aria-labelledby="recommended-heading" className="pt-10 border-t border-stone-200">
+        <div className="flex items-center justify-between mb-6">
+          <h2 id="recommended-heading" className="font-editorial text-2xl font-bold text-stone-950">
+            Recommended For You (Aapke Liye Sujhav)
+          </h2>
+          <span className="text-xs text-stone-500">Related to {article.subCategory}</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {fallbackRecommended.map((rec) => (
+            <article key={rec.id} className="flex flex-col justify-between group border border-stone-200 rounded-lg p-4 bg-white">
+              <div>
+                <button
+                  type="button"
+                  onClick={() => onSelectArticle(rec)}
+                  className="block w-full aspect-[16/9] overflow-hidden rounded-md border border-stone-200 bg-stone-100 mb-3"
+                >
+                  <EditorialImage
+                    src={rec.image}
+                    alt={rec.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
+                  />
+                </button>
+                <div className="text-xs text-stone-500 mb-1.5">
+                  <span className="font-semibold text-emerald-900">{rec.subCategory}</span>
+                  <span className="mx-1.5" aria-hidden="true">·</span>
+                  <span>{rec.publishedAt}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => onSelectArticle(rec)}
+                  className="text-left block"
+                >
+                  <h3 className="font-editorial text-base font-semibold text-stone-950 leading-snug group-hover:text-emerald-900 transition-colors">
+                    {rec.title}
+                  </h3>
+                </button>
+                <p className="mt-2 text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                  {rec.deck}
+                </p>
+              </div>
+              <div className="mt-4 flex items-center justify-between text-xs text-stone-500 pt-3 border-t border-stone-100">
+                <span>{rec.readTime}</span>
+                <button
+                  type="button"
+                  onClick={() => onSelectArticle(rec)}
+                  className="inline-flex items-center gap-1 font-semibold text-emerald-900 hover:text-emerald-950"
+                >
+                  <span>Padhein</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

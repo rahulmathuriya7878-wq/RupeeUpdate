@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Article, NavSection, SubCategory } from './types';
 import { Header } from './components/Header';
-import { MarketStrip } from './components/MarketStrip';
 import { HomeView } from './components/HomeView';
 import { CategoryView } from './components/CategoryView';
 import { CalculatorsView } from './components/CalculatorsView';
@@ -96,7 +95,6 @@ export default function App() {
         onNavigate={(section) => handleNavigate(section)}
         onOpenSearch={() => setSearchOpen(true)}
       />
-      <MarketStrip />
 
       <div className="flex-1">{renderContent()}</div>
 
