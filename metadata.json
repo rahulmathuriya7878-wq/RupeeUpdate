@@ -1,0 +1,6 @@
+{
+  "name": "RupeeUpdate.in",
+  "description": "Clean and fast Indian personal finance, IPO & GMP tracker, Sarkari Yojana, and financial calculator news portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
